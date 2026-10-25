@@ -1,0 +1,29 @@
+/** KARST Goods commerce design tokens */
+:root{
+  color-scheme:light;
+  --store-cream:#f2efe7;--store-paper:#f7f4ed;--store-surface:#e7e1d6;
+  --store-line:#cac3b7;--store-ink:#1d211d;--store-sage:#758070;
+  --store-forest:#3f6b4f;--store-stone:#a66f45;--store-focus:#315cff;--store-error:#a43d32;
+  --color-bg:var(--store-cream);--color-surface:var(--store-paper);--color-surface-alt:var(--store-surface);
+  --color-text:var(--store-ink);--color-muted:var(--store-sage);--color-accent:var(--store-stone);
+  --color-border:var(--store-line);--color-inverse:var(--store-paper);--color-focus:var(--store-focus);
+  --font-display:"Manrope","Pretendard Variable",Pretendard,sans-serif;
+  --font-body:"Inter","Pretendard Variable",Pretendard,sans-serif;
+  --text-display:clamp(4rem,9.5vw,9.375rem);--text-section:clamp(2.75rem,6vw,5.75rem);
+  --text-product:clamp(1.75rem,3vw,2.625rem);--text-body:clamp(1rem,.98rem + .08vw,1.0625rem);
+  --container-max:90rem;--container-gutter:1.5rem;--grid-columns:4;--grid-gap:1rem;
+  --section-space:clamp(5.625rem,12vw,11.875rem);--header-height:4.875rem;
+  --product-card-radius:10rem 10rem 1.25rem 1.25rem;--media-radius:50% 50% 1.25rem 1.25rem/14% 14% 1.25rem 1.25rem;
+  --button-height:3.25rem;--button-radius:999px;--control-size:3rem;--tap-size:2.75rem;
+  --duration-fast:200ms;--duration-normal:350ms;--duration-reveal:800ms;
+  --ease-out:cubic-bezier(.22,1,.36,1);--focus-width:3px;
+  --z-header:1000;--z-menu:900;
+}
+@media(min-width:48rem){:root{--container-gutter:1.75rem;--grid-columns:8;--grid-gap:1.25rem}}
+@media(min-width:64rem){:root{--container-gutter:3rem;--grid-columns:12;--grid-gap:1.5rem}}
+@media(prefers-reduced-motion:reduce){:root{--duration-fast:.01ms;--duration-normal:.01ms;--duration-reveal:.01ms}}
+.site-container{width:min(calc(100% - (var(--container-gutter)*2)),var(--container-max));margin-inline:auto}
+.store-grid{display:grid;grid-template-columns:repeat(var(--grid-columns),minmax(0,1fr));gap:var(--grid-gap)}
+.store-price{font-variant-numeric:tabular-nums}
+:where(.store-scope) :focus-visible{outline:var(--focus-width) solid var(--color-focus);outline-offset:4px}
+

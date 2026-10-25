@@ -1,0 +1,31 @@
+﻿.material-banner{position:relative;isolation:isolate;display:grid;place-items:center;width:100%;aspect-ratio:1920/1080;overflow:hidden;background:var(--paper);border-top:1px solid #bdb4a7}
+.material-banner-image{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6}
+.material-banner:after{content:"";position:absolute;z-index:-1;inset:0;background:rgba(244,239,229,.8)}
+.material-banner-content{width:min(900px,90%);padding:60px 0;text-align:center;color:var(--ink)}
+.material-banner-content .overline{margin:0 0 36px}
+.material-banner-content h2{margin:0;font-size:clamp(38px,4.4vw,78px);font-weight:400;line-height:.98;letter-spacing:-.055em}
+.material-banner-description{width:100%;max-width:560px;margin:34px auto 0;font-size:clamp(16px,1.1vw,18px);line-height:1.6}
+@media(max-width:800px){.material-banner{min-height:560px;aspect-ratio:auto}.material-banner-content{padding:64px 0}.material-banner-content h2{font-size:clamp(36px,7vw,56px)}.material-banner-description{max-width:560px;font-size:16px}}
+.material-banner{display:block;aspect-ratio:auto;overflow:visible}
+.material-banner:after{display:none}
+.material-banner-stage{position:relative;isolation:isolate;display:grid;place-items:center;width:100%;aspect-ratio:1920/1080;overflow:hidden}
+.material-banner-stage:after{display:none}
+.material-banner-content{width:min(760px,calc(100% - 420px))}
+.material-banner-content h2{font-size:clamp(36px,4.2vw,72px)}
+.material-banner-word{display:inline-block}
+.material-banner-rail{display:contents;pointer-events:none}
+.material-banner-rail-left{left:clamp(24px,7vw,140px)}
+.material-banner-rail-right{right:clamp(24px,7vw,140px)}
+.material-banner-badge{position:absolute;top:0;left:var(--badge-x);width:clamp(110px,12.15vw,225px);margin:0;text-align:center;will-change:transform;pointer-events:none}
+.material-banner-badge svg{display:block;width:100%;height:clamp(70px,10vh,110px);fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.material-banner-badge .stone-paper-guide{stroke:var(--brown);stroke-width:1;stroke-dasharray:5 5;opacity:.4}
+.material-banner-icon{position:relative;overflow:hidden;margin:0 auto}.material-banner-icon img{position:absolute;display:block;max-width:none;object-fit:fill}.material-banner-badge figcaption{width:100%;margin:20px auto 0;font-size:clamp(11px,.972vw,18px);font-weight:400;line-height:1.3;letter-spacing:0}
+.material-banner.is-scroll-story{height:700svh}
+.is-scroll-story .material-banner-stage{position:sticky;top:0;height:100svh;aspect-ratio:auto}
+@media(max-width:1000px){.material-banner-badge{width:clamp(90px,12.15vw,120px)}}
+@media(max-width:600px){.material-banner-badge{left:var(--badge-mobile-x);width:58px}}
+@media(prefers-reduced-motion:reduce){.material-banner-badge{will-change:auto}}
+@media(max-width:1000px){.material-banner-content{width:calc(100% - 330px)}.material-banner-rail{width:120px}.material-banner-rail-left{left:24px}.material-banner-rail-right{right:24px}.material-banner-description{font-size:16px}}
+@media(max-width:600px){.material-banner-stage{min-height:660px;aspect-ratio:auto}.material-banner-content{width:calc(100% - 142px);padding:70px 0 36px}.material-banner-content .overline{font-size:8px;line-height:1.4;margin-bottom:24px}.material-banner-content h2{font-size:clamp(27px,6.2vw,38px)}.material-banner-description{font-size:16px;line-height:1.6;margin-top:24px}.material-banner-rail{width:58px;gap:34px}.material-banner-rail-left{left:6px}.material-banner-rail-right{right:6px}.material-banner-badge svg{height:58px}.material-banner-badge figcaption{font-size:9px;margin-top:10px;letter-spacing:0}.is-scroll-story .material-banner-stage{min-height:0}}
+
+

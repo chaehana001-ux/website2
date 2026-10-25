@@ -1,0 +1,20 @@
+.stone-paper{padding:0 var(--pad) 80px;background:var(--paper);color:var(--ink)}
+.stone-paper-heading{display:grid;grid-template-columns:2fr 1fr;gap:7vw;align-items:start;padding:64px 24px 72px;border:1px solid #bdb4a7;border-bottom:0}
+.stone-paper-heading .overline{margin:0 0 30px}
+.stone-paper-heading h2{margin:0;font-size:clamp(40px,4.7vw,76px);font-weight:400;line-height:.98;letter-spacing:-.055em}
+.stone-paper-intro{max-width:440px;margin:45px 0 0;font-size:16px;line-height:1.45}
+.stone-paper-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #bdb4a7;border-left:1px solid #bdb4a7}
+.stone-paper-card{min-width:0;border-right:1px solid #bdb4a7;border-bottom:1px solid #bdb4a7}
+.stone-paper-label{display:flex;justify-content:space-between;gap:16px;padding:14px 20px;font-size:10px;font-weight:500;letter-spacing:.04em;border-bottom:1px dashed #c5bcae}
+.stone-paper-label>span:last-child{color:var(--brown)}
+.stone-paper-art{height:clamp(150px,12vw,200px);display:grid;place-items:center;padding:20px}
+.stone-paper-art svg{width:min(72%,240px);height:100%;max-height:160px;stroke:var(--brown);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.stone-paper-art .stone-paper-guide{stroke:#b7afa2;stroke-dasharray:5 5}
+.stone-paper-art .stone-paper-trace{stroke:var(--ink);stroke-width:1.8;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:0;pointer-events:none}
+@media(hover:hover){.stone-paper-art:hover .stone-paper-trace{opacity:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1) var(--trace-delay),opacity .1s ease var(--trace-delay)}}
+@media(prefers-reduced-motion:reduce){.stone-paper-art:hover .stone-paper-trace{transition:none}}
+.stone-paper-caption{min-height:150px;padding:20px;border-top:1px dashed #c5bcae}
+.stone-paper-caption h3{margin:0 0 12px;font-size:clamp(26px,2.3vw,38px);line-height:1;letter-spacing:-.045em;font-weight:400}
+.stone-paper-caption p{max-width:330px;margin:0;line-height:1.45}
+@media(max-width:1000px){.stone-paper-heading{gap:40px;grid-template-columns:1.5fr 1fr}.stone-paper-intro{font-size:14px}.stone-paper-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.stone-paper{padding-bottom:40px}.stone-paper-heading{grid-template-columns:1fr;padding:40px 18px;gap:24px}.stone-paper-heading h2{font-size:clamp(34px,8.5vw,48px)}.stone-paper-intro{margin:0}.stone-paper-grid{grid-template-columns:1fr}.stone-paper-label{padding:18px}.stone-paper-art{height:160px}.stone-paper-caption{min-height:0;padding:20px 18px 24px}.stone-paper-caption h3{font-size:30px}}
