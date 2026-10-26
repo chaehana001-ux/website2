@@ -6,6 +6,7 @@
   <meta name="description" content="Karst notebooks, planners and creative tools made with stone paper.">
   <title>KARST — Tools for your next idea</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="../image/logo.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/site.css">
@@ -20,7 +21,7 @@
     <a class="logo" href="#top" aria-label="Karst home"><img src="../image/logo.png" alt="KARST"></a>
     <div class="top-actions"><a class="header-icon header-contact" href="#contact" aria-label="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 20 11.5Z"/><path d="M8 10h8M8 13h5"/></svg></a><a class="header-icon header-products" href="#products" aria-label="Explore products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a></div>
   </header>
-  <aside class="menu" id="menu" aria-hidden="true">
+  <aside class="menu" id="menu" aria-hidden="true" inert>
     <nav><a href="#top"><small>01</small>MAIN</a><a href="#products"><small>02</small>PRODUCTS</a><a href="#guide"><small>03</small>GUIDE</a><a href="#about"><small>04</small>ABOUT</a><a href="#contact"><small>05</small>CONTACT</a></nav>
     <p>Make space for ideas.<br>Tools by Karst.</p>
   </aside>
@@ -36,13 +37,13 @@
       <div class="intro-hero-scroll"><a href="#hero-film">SCROLL TO EXPLORE</a><span>• KARST</span></div>
     </section>
     <section class="hero" id="hero-film">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="../image/karst-notebooks.jpg" aria-hidden="true">
         <source src="../image/karst%20hero.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
       <div class="hero-inner">
         <p class="kicker">KARST · STONE PAPER & CREATIVE TOOLS</p>
-        <h1>Better tools.<br>Better work.<br>Better tomorrow.</h1>
+        <h2>Better tools.<br>Better work.<br>Better tomorrow.</h2>
         <div class="hero-foot"><a class="button button-light" href="#products">EXPLORE THE COLLECTION <span>↗</span></a><p>A notebook for your thoughts. A planner for your next step. Discover tools for writing, planning and creating.</p></div>
         <span class="scroll-note">SCROLL TO EXPLORE</span>
       </div>
@@ -68,10 +69,6 @@
         <article class="benefit-card" data-benefit><img src="../image/karst_7_category_images/06_Art_Supplies.png" alt="Karst art supplies" width="1480" height="1000" loading="lazy"><h3>Art Supplies<span class="category-name-ko" lang="ko">미술용품</span></h3><div class="card-meta"><span>06</span><p lang="ko">스케치북, 스케치 패드, 드로잉용 연필 등을 판매해. 글쓰기보다 그림이나 시각적인 아이디어를 표현하는 데 초점을 맞춘 제품군이야.</p></div></article>
         <article class="benefit-card" data-benefit><img src="../image/karst_7_category_images/07_Desk_Goods.png" alt="Karst desk goods" width="1480" height="1000" loading="lazy"><h3>Desk Goods<span class="category-name-ko" lang="ko">데스크용품</span></h3><div class="card-meta"><span>07</span><p lang="ko">데스크 트레이, 펜 트레이, 자, 가위 등 책상에서 사용하는 소품이야. 작업 공간을 정리하고 편리하게 사용하는 데 도움을 주는 제품들이지.</p></div></article>
       </div>
-    </section>
-    <section class="safety section">
-      <header class="split-heading"><p class="overline">EXPLORE THE COLLECTION</p><h2>Made for focus.<br>Built for progress.</h2></header>
-      <div class="feature-grid feature-grid-four"><article><span>01 — CAPTURE</span><h3>Pro Series Notebook</h3><p lang="ko">회의 기록, 아이디어 정리, 업무 노트</p></article><article><span>02 — PLAN</span><h3>Pro Series Planner</h3><p lang="ko">일정 관리, 시간 계획, 업무 우선순위</p></article><article><span>03 — DESIGN</span><h3>Pro Series Technical Grid</h3><p lang="ko">도면, 구조 설계, 아이디어 스케치</p></article><article><span>04 — ORGANIZE</span><h3>Pro Series Pad</h3><p lang="ko">빠른 메모, 업무 정리, 실행 계획</p></article></div>
     </section>
     <section class="home-fit">
       <div class="home-fit-image"></div>
@@ -118,7 +115,7 @@
           <div class="bestseller-stage bestseller-stage-sand">
             <span class="bestseller-rank" aria-label="Number 3">03</span>
             <span class="bestseller-label">BEST SELLER</span>
-            <img src="../image/featured-notebook-pen.jpg" alt="Black A5 hardcover notebook with a matching Stone Pen" width="600" height="600" loading="lazy">
+            <img src="../image/featured-notebook-pen.jpg" alt="Black A5 hardcover notebook with a matching Stone Pen" width="600" height="444" loading="lazy">
             <span class="bestseller-use">BETTER TOGETHER</span>
           </div>
           <div class="bestseller-meta"><span>GIFTS & BUNDLES</span><span>A5 HARDCOVER</span></div>
@@ -147,9 +144,13 @@
       <div class="testimonial-main">
         <span class="testimonial-dot">•</span>
         <div class="testimonial-copy">
-          <p class="overline">PRO SERIES COLLECTION</p>
-          <h2 class="pro-series-title">Productivity without the friction</h2>
-          <p class="pro-series-description">Our Pro Series now comes in new forms shaped for every way of working. Thoughtful structure and formats designed to support focus, clarity, and momentum - whether you're planning, creating, or solving.</p>
+          <p class="overline">EXPLORE THE COLLECTION</p>
+          <h2 class="pro-series-title">Made for focus.<br>Built for progress.</h2>
+          <div class="pro-series-product" aria-live="polite" aria-atomic="true">
+            <p class="overline" data-series-category>01 — CAPTURE</p>
+            <h3 data-series-title>Pro Series Notebook</h3>
+            <p class="pro-series-description" data-series-description lang="ko">회의 기록, 아이디어 정리, 업무 노트</p>
+          </div>
           <div class="testimonial-meta" aria-live="polite"><b data-series-name>PRO SERIES NOTEBOOK</b><span>PRO SERIES COLLECTION</span><span>KARST</span><span data-series-format>NOTES & IDEAS</span></div>
         </div>
         <img class="testimonial-image" data-series-image src="../image/karst-notebooks.jpg" alt="Pro Series Notebook">
@@ -159,7 +160,7 @@
     <section class="product-cta"><div><p class="overline">2027 PLANNERS · PRE-ORDER</p><h2>Your year.<br>One page at a time.</h2><a class="button button-light" href="#products">DISCOVER THE PLANNERS <span>↗</span></a></div><div class="guarantee"><b>01</b><span>PURCHASE</span><p>Support reforestation.<br>One purchase, one tree planted.</p></div></section>
 </main>
   <footer id="contact"><div class="footer-grid"><div><p class="overline">COMPANY</p><a href="#top">Homepage</a><a href="#products">Products</a><a href="#about">About us</a></div><div><p class="overline">DISCOVER</p><a href="#about">Our story</a><a href="#guide">Sustainability</a></div><div><p class="overline">CONTACT</p><span>Questions about Karst?</span><a href="#contact">Karst notebooks & tools</a></div></div><div class="footer-bottom"><img class="footer-logo" src="../image/logo.png" alt="KARST"><span>© <i data-year></i> · KARST CONTENT STUDY</span><a href="#top">BACK TO TOP ↑</a></div><div class="footer-top"><h2>Make space<br>for your ideas.</h2><a class="round-link" href="#contact" aria-label="Contact us">↗</a></div></footer>
-  <script src="script.js?v=9" defer></script>
+  <script src="script.js?v=10" defer></script>
 </body>
 </html>
 

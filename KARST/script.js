@@ -1,15 +1,39 @@
 ﻿const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#menu');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const setMenu = (open) => {
   document.body.classList.toggle('menu-open', open);
   menu.classList.toggle('open', open);
   menu.setAttribute('aria-hidden', String(!open));
   menuButton.setAttribute('aria-expanded', String(open));
+  menu.inert = !open;
+  document.querySelector('main').inert = open;
+  document.querySelector('footer').inert = open;
+  if (open) requestAnimationFrame(() => {
+    if (document.body.classList.contains('menu-open')) menu.querySelector('a').focus({ preventScroll: true });
+  });
+  else menuButton.focus({ preventScroll: true });
 };
 menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenu(false); });
+document.addEventListener('keydown', (event) => {
+  if (!document.body.classList.contains('menu-open')) return;
+  if (event.key === 'Escape') setMenu(false);
+  if (event.key === 'Tab') {
+    const controls = [menuButton, ...menu.querySelectorAll('a')];
+    const current = controls.indexOf(document.activeElement);
+    event.preventDefault();
+    controls[(current + (event.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
+  }
+});
+const heroVideo = document.querySelector('.hero-video');
+const updateVideoMotion = () => {
+  if (reducedMotion.matches) heroVideo.pause();
+  else heroVideo.play().catch(() => {}); // Autoplay may be blocked by the browser.
+};
+reducedMotion.addEventListener('change', updateVideoMotion);
+updateVideoMotion();
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > window.innerHeight * .72);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
@@ -34,16 +58,19 @@ if ('IntersectionObserver' in window) {
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
 const seriesProducts = [
-  { name: 'PRO SERIES NOTEBOOK', format: 'NOTES & IDEAS', image: '../image/karst-notebooks.jpg', alt: 'Pro Series Notebook' },
-  { name: 'PRO SERIES PLANNER', format: 'PLANS & PRIORITIES', image: '../image/pro-series-planner.jpg', alt: 'Pro Series Planner' },
-  { name: 'PRO SERIES TECHNICAL GRID', format: 'DRAWING & DESIGN', image: '../image/pro-series-grid.jpg', alt: 'Pro Series Technical Grid' },
-  { name: 'PRO SERIES PAD', format: 'EVERYDAY WORK', image: '../image/pro-series-pad.jpg', alt: 'Pro Series Pad' }
+  { category: 'CAPTURE', description: '회의 기록, 아이디어 정리, 업무 노트', name: 'PRO SERIES NOTEBOOK', format: 'NOTES & IDEAS', image: '../image/karst-notebooks.jpg', alt: 'Pro Series Notebook' },
+  { category: 'PLAN', description: '일정 관리, 시간 계획, 업무 우선순위', name: 'PRO SERIES PLANNER', format: 'PLANS & PRIORITIES', image: '../image/pro-series-planner.jpg', alt: 'Pro Series Planner' },
+  { category: 'DESIGN', description: '도면, 구조 설계, 아이디어 스케치', name: 'PRO SERIES TECHNICAL GRID', format: 'DRAWING & DESIGN', image: '../image/pro-series-grid.jpg', alt: 'Pro Series Technical Grid' },
+  { category: 'ORGANIZE', description: '빠른 메모, 업무 정리, 실행 계획', name: 'PRO SERIES PAD', format: 'EVERYDAY WORK', image: '../image/pro-series-pad.jpg', alt: 'Pro Series Pad' }
 ];
 let seriesIndex = 0;
 const showSeriesProduct = (index) => {
   seriesIndex = (index + seriesProducts.length) % seriesProducts.length;
   const product = seriesProducts[seriesIndex];
   document.querySelector('[data-series-name]').textContent = product.name;
+  document.querySelector('[data-series-category]').textContent = `${String(seriesIndex + 1).padStart(2, '0')} — ${product.category}`;
+  document.querySelector('[data-series-title]').textContent = product.alt;
+  document.querySelector('[data-series-description]').textContent = product.description;
   document.querySelector('[data-series-format]').textContent = product.format;
   const productImage = document.querySelector('[data-series-image]');
   productImage.src = product.image;
@@ -125,6 +152,16 @@ if (materialBanner) {
   });
   const clampProgress = (value) => Math.max(0, Math.min(1, value));
   const updateMaterialBanner = () => {
+    materialBanner.classList.toggle('is-reduced-motion', reducedMotion.matches);
+    if (reducedMotion.matches) {
+      materialBanner.classList.remove('is-scroll-story');
+      words.forEach((word) => { word.style.opacity = '1'; });
+      badges.forEach(({ element }) => {
+        element.style.visibility = 'visible';
+        element.style.transform = 'none';
+      });
+      return;
+    }
     materialBanner.classList.add('is-scroll-story');
     const scrollDistance = materialBanner.offsetHeight - stage.offsetHeight;
     const progress = clampProgress(-materialBanner.getBoundingClientRect().top / Math.max(1, scrollDistance));
@@ -147,11 +184,17 @@ if (materialBanner) {
       element.style.transform = `translate3d(calc(-50% + ${drift}px), ${y}px, 0)`;
     });
   };
+  let materialFrame = 0;
   const scheduleMaterialBanner = () => {
-    updateMaterialBanner();
+    if (materialFrame) return;
+    materialFrame = requestAnimationFrame(() => {
+      materialFrame = 0;
+      updateMaterialBanner();
+    });
   };
   window.addEventListener('scroll', scheduleMaterialBanner, { passive: true });
   window.addEventListener('resize', scheduleMaterialBanner);
+  reducedMotion.addEventListener('change', scheduleMaterialBanner);
   updateMaterialBanner();
 }
 

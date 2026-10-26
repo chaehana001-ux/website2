@@ -25,6 +25,10 @@
 @media(max-width:1000px){.material-banner-badge{width:clamp(90px,12.15vw,120px)}}
 @media(max-width:600px){.material-banner-badge{left:var(--badge-mobile-x);width:58px}}
 @media(prefers-reduced-motion:reduce){.material-banner-badge{will-change:auto}}
+.material-banner.is-reduced-motion .material-banner-stage{position:relative;display:flex;flex-direction:column;gap:24px;height:auto;min-height:100svh;aspect-ratio:auto;padding:64px var(--pad)}
+.is-reduced-motion .material-banner-content{width:min(760px,100%);padding:0 0 24px}
+.is-reduced-motion .material-banner-rail{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:24px;width:100%}
+.is-reduced-motion .material-banner-badge{position:static;flex:0 0 110px;width:110px;will-change:auto}
 @media(max-width:1000px){.material-banner-content{width:calc(100% - 330px)}.material-banner-rail{width:120px}.material-banner-rail-left{left:24px}.material-banner-rail-right{right:24px}.material-banner-description{font-size:16px}}
 @media(max-width:600px){.material-banner-stage{min-height:660px;aspect-ratio:auto}.material-banner-content{width:calc(100% - 142px);padding:70px 0 36px}.material-banner-content .overline{font-size:8px;line-height:1.4;margin-bottom:24px}.material-banner-content h2{font-size:clamp(27px,6.2vw,38px)}.material-banner-description{font-size:16px;line-height:1.6;margin-top:24px}.material-banner-rail{width:58px;gap:34px}.material-banner-rail-left{left:6px}.material-banner-rail-right{right:6px}.material-banner-badge svg{height:58px}.material-banner-badge figcaption{font-size:9px;margin-top:10px;letter-spacing:0}.is-scroll-story .material-banner-stage{min-height:0}}
 
