@@ -1,4 +1,4 @@
-﻿const header = document.querySelector('[data-header]');
+const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#menu');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -34,6 +34,25 @@ const updateVideoMotion = () => {
 };
 reducedMotion.addEventListener('change', updateVideoMotion);
 updateVideoMotion();
+// Darken the first hero as the film slides over it, including its text.
+const introHero = document.querySelector('.hero-stack .intro-hero');
+const filmHero = document.querySelector('.hero-stack > .hero');
+if (introHero && filmHero) {
+  let introDimFrame = 0;
+  const updateIntroDim = () => {
+    introDimFrame = 0;
+    const introBounds = introHero.getBoundingClientRect();
+    const overlap = introBounds.bottom - filmHero.getBoundingClientRect().top;
+    const progress = Math.max(0, Math.min(1, overlap / Math.max(1, introBounds.height)));
+    introHero.style.setProperty('--intro-dim', String(progress * .7));
+  };
+  const scheduleIntroDim = () => {
+    if (!introDimFrame) introDimFrame = requestAnimationFrame(updateIntroDim);
+  };
+  window.addEventListener('scroll', scheduleIntroDim, { passive: true });
+  window.addEventListener('resize', scheduleIntroDim);
+  updateIntroDim();
+}
 const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > window.innerHeight * .72);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
@@ -198,3 +217,27 @@ if (materialBanner) {
   updateMaterialBanner();
 }
 
+
+// Move each cover and paper detail together as one image composition.
+const bestsellerStories = [...document.querySelectorAll('.bestseller-story')];
+if (bestsellerStories.length) {
+  let bestsellerFrame = 0;
+  const updateBestsellers = () => {
+    bestsellerFrame = 0;
+    const still = reducedMotion.matches || window.innerWidth <= 700;
+    bestsellerStories.forEach((story) => {
+      const top = story.getBoundingClientRect().top;
+      if (!still && (top > innerHeight || top < -story.offsetHeight)) return;
+      const progress = still ? 0 : Math.max(0, Math.min(1, top / innerHeight));
+      story.style.setProperty('--cover-shift', `${progress * 28}px`);
+      story.style.setProperty('--paper-shift', `${progress * 28}px`);
+    });
+  };
+  const scheduleBestsellers = () => {
+    if (!bestsellerFrame) bestsellerFrame = requestAnimationFrame(updateBestsellers);
+  };
+  window.addEventListener('scroll', scheduleBestsellers, { passive: true });
+  window.addEventListener('resize', scheduleBestsellers);
+  reducedMotion.addEventListener('change', scheduleBestsellers);
+  updateBestsellers();
+}
