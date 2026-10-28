@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="icon" type="image/png" href="../image/logo.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/site.css?v=13">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/site.css?v=43">
 
-  <link rel="stylesheet" href="CSS/intro.css?v=3">
+  <link rel="stylesheet" href="CSS/intro.css?v=10">
   <link rel="stylesheet" href="CSS/material-banner.css?v=7">
 </head>
 <body>
@@ -31,7 +31,7 @@
       <img class="intro-hero-image" src="../image/karst-notebooks.jpg" alt="Open Karst Pro Series notebook" fetchpriority="high">
       <div class="intro-hero-content">
         <h1 id="intro-title">Better tools.<br>For better ideas.</h1>
-        <div class="intro-hero-actions"><a class="button button-light" href="#guide">EXPLORE THE COLLECTION</a><a class="intro-hero-arrow" href="#guide" aria-label="Explore the collection">→</a></div>
+        <div class="intro-hero-actions"><a class="button button-light" href="#guide">EXPLORE THE COLLECTION <span aria-hidden="true">→</span></a></div>
         <div class="intro-hero-bottom"><p class="intro-hero-description">Notebooks, planners and creative tools. Made to give your ideas a place to grow, every day.</p><a class="intro-film" href="#hero-film"><img src="../image/karst-planners.png" alt=""><span>DISCOVER<br>THE WORLD OF KARST</span><b class="intro-film-play" aria-hidden="true">▶</b></a></div>
       </div>
       <div class="intro-hero-scroll"><a href="#hero-film">SCROLL TO EXPLORE</a><span>• KARST</span></div>
@@ -74,19 +74,19 @@
       <div class="home-fit-image"></div>
       <div class="home-fit-copy" lang="ko">
         <h2 lang="en">Better materials.<br>A wider purpose.<span class="home-fit-title-ko" lang="ko">더 나은 소재, 더 가치 있는 선택.</span></h2>
-        <ol>
-          <li><span>01</span>재활용 석재에서 시작된 새로운 종이</li>
-          <li><span>02</span>나무를 사용하지 않는 종이</li>
-          <li><span>03</span>물 없이 완성하는 종이 생산</li>
-          <li><span>04</span>지속가능한 가치를 실천하는 B Corp 인증 기업</li>
-          <li><span>05</span>One Tree Planted와 함께하는 환경 보호</li>
-        </ol>
+        <ul class="home-fit-benefits">
+          <li><span class="home-fit-benefit-text">재활용 석재에서 시작된 새로운 종이</span></li>
+          <li><span class="home-fit-benefit-text">나무를 사용하지 않는 종이</span></li>
+          <li><span class="home-fit-benefit-text">물 없이 완성하는 종이 생산</span></li>
+          <li><span class="home-fit-benefit-text">지속가능한 가치를 실천하는 B Corp 인증 기업</span></li>
+          <li><span class="home-fit-benefit-text">One Tree Planted와 함께하는 환경 보호</span></li>
+        </ul>
       </div>
     </section>
     <section class="bestsellers section" id="products" aria-labelledby="bestsellers-title">
       <header class="bestsellers-heading">
-        <div><p class="overline">THE EVERYDAY FAVOURITES</p><h2 id="bestsellers-title">Best sellers<span>.</span></h2></div>
-        <p class="bestsellers-intro">Good ideas start here.<br>Discover your next everyday essential.</p>
+        <div><p class="overline">THE EVERYDAY FAVOURITES</p><h2 id="bestsellers-title">Best sellers <span class="bestsellers-count" aria-label="3 products">(03)</span></h2></div>
+        <p class="bestsellers-intro">Tools for the way you think,<br>plan and create.</p>
       </header>
       <div class="bestsellers-stories">
         <article class="bestseller-story" aria-labelledby="favourite-one">
@@ -125,7 +125,7 @@
           </div>
           <div class="bestseller-visual">
             <figure class="bestseller-cover bestseller-cover-sand"><img src="../image/bestseller-pen-set.png" alt="Black A5 hardcover notebook exterior and matching Stone Pen" width="1893" height="1400" loading="lazy"></figure>
-            <figure class="bestseller-paper"><img src="../image/bestseller-hardcover-spread.jpg" alt="A5 hardcover notebook opened flat to show both lined stone paper pages" width="2130" height="2130" loading="lazy"></figure>
+            <figure class="bestseller-paper"><img src="../image/bestseller-hardcover-spread-transparent.png" alt="A5 hardcover notebook opened flat to show both lined stone paper pages" width="1254" height="1254" loading="lazy"></figure>
           </div>
         </article>
       </div>
@@ -138,34 +138,40 @@
         <p class="material-banner-description">Our planners are made from sustainably sourced stone paper using recycled stone, meaning no trees, no water, and no harmful chemicals are used in the process. Naturally bright and smooth, they’re waterproof, tear-resistant, and designed to last, making them not just an investment in your productivity but also in the planet.</p>
       </div>
     </section>
-    <section class="craft"><div class="craft-copy"><p class="overline">MATERIALS WITH A PURPOSE</p><h2>From stone.<br>For your ideas.</h2><p>A familiar object, reconsidered from its raw material. Karst turns recycled calcium carbonate into paper with a smooth, liquid-resistant surface.</p></div><img src="../image/karst-notebooks.jpg" alt="Karst notebook detail"></section>
-    <section class="testimonials pro-series" aria-label="Pro Series collection">
+    <section class="testimonials pro-series" id="pro-collection" aria-label="Pro Collection">
       <div class="testimonial-thumbs" data-series-thumbs>
-        <button class="active" type="button" data-series-index="0" aria-label="Pro Series Notebook" aria-pressed="true"><img src="../image/karst-notebooks.jpg" alt=""><span>(01)</span></button>
-        <button type="button" data-series-index="1" aria-label="Pro Series Planner" aria-pressed="false"><img src="../image/pro-series-planner.jpg" alt=""><span>(02)</span></button>
-        <button type="button" data-series-index="2" aria-label="Pro Series Technical Grid" aria-pressed="false"><img src="../image/pro-series-grid.jpg" alt=""><span>(03)</span></button>
-        <button type="button" data-series-index="3" aria-label="Pro Series Pad" aria-pressed="false"><img src="../image/pro-series-pad.jpg" alt=""><span>(04)</span></button>
+        <button class="active" type="button" data-series-index="0" aria-label="Pro Series Notebook" aria-pressed="true"><img data-series-visual="notebook" src="../image/pro-series-notebook-expanded.png" alt=""><span>(01)</span></button>
+        <button type="button" data-series-index="1" aria-label="Pro Series Planner" aria-pressed="false"><img data-series-visual="planner" src="../image/pro-series-planner-expanded.png" alt=""><span>(02)</span></button>
+        <button type="button" data-series-index="2" aria-label="Pro Series Technical Grid" aria-pressed="false"><img data-series-visual="grid" src="../image/pro-series-grid-expanded.png" alt=""><span>(03)</span></button>
+        <button type="button" data-series-index="3" aria-label="Pro Series Pad" aria-pressed="false"><img data-series-visual="pad" src="../image/pro-series-pad-expanded.png" alt=""><span>(04)</span></button>
       </div>
       <div class="testimonial-main">
-        <span class="testimonial-dot">•</span>
         <div class="testimonial-copy">
-          <p class="overline">EXPLORE THE COLLECTION</p>
-          <h2 class="pro-series-title">Made for focus.<br>Built for progress.</h2>
+          <p class="overline">EXPLORE THE PRO COLLECTION</p>
+          <h2 class="pro-series-title">Pro Collection</h2>
+          <p class="pro-series-intro" lang="ko">기록하고, 계획하고, 아이디어를 구체화하는 네 가지 도구. 노트북, 플래너, 테크니컬 그리드, 패드 중 자신의 작업 방식에 맞는 Pro Series를 만나보세요.</p>
           <div class="pro-series-product" aria-live="polite" aria-atomic="true">
             <p class="overline" data-series-category>01 — CAPTURE</p>
             <h3 data-series-title>Pro Series Notebook</h3>
-            <p class="pro-series-description" data-series-description lang="ko">회의 기록, 아이디어 정리, 업무 노트</p>
+            <p class="pro-series-description" data-series-description lang="ko">회의에서 나온 생각부터 아직 정리되지 않은 아이디어까지, 업무의 흐름을 한 권에 담아보세요. 날짜와 핵심 목표를 적고, 이어지는 노트 공간에 논의 내용과 다음 할 일을 함께 기록할 수 있습니다. 프로젝트별 메모를 쌓아두고 다시 살펴보며 생각을 구체적인 실행으로 연결해 보세요.</p>
           </div>
-          <div class="testimonial-meta" aria-live="polite"><b data-series-name>PRO SERIES NOTEBOOK</b><span>PRO SERIES COLLECTION</span><span>KARST</span><span data-series-format>NOTES & IDEAS</span></div>
+          <div class="testimonial-meta" aria-live="polite"><b data-series-name>PRO SERIES NOTEBOOK</b><span>PRO COLLECTION</span><span>KARST</span><span data-series-format>NOTES & IDEAS</span></div>
         </div>
-        <img class="testimonial-image" data-series-image src="../image/karst-notebooks.jpg" alt="Pro Series Notebook">
+        <figure class="pro-series-visual"><img class="testimonial-image" data-series-image data-series-visual="notebook" src="../image/pro-series-notebook-expanded.png" alt="Pro Series Notebook"></figure>
         <div class="testimonial-controls"><span><b data-series-current>01</b> / 04</span><button type="button" data-series-next aria-label="Next Pro Series product">NEXT →</button></div>
       </div>
     </section>
-    <section class="product-cta"><div><p class="overline">2027 PLANNERS · PRE-ORDER</p><h2>Your year.<br>One page at a time.</h2><a class="button button-light" href="#products">DISCOVER THE PLANNERS <span>↗</span></a></div><div class="guarantee"><b>01</b><span>PURCHASE</span><p>Support reforestation.<br>One purchase, one tree planted.</p></div></section>
+    <section class="product-cta" aria-labelledby="next-chapter-title">
+      <div class="next-chapter-copy">
+        <p class="overline">YOUR NEXT CHAPTER</p>
+        <h2 id="next-chapter-title">What will you<br>create next?</h2>
+        <p class="next-chapter-description" lang="ko">당신의 다음 아이디어를 시작하세요.</p>
+        <a class="button next-chapter-button" href="#products">EXPLORE KARST <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
 </main>
   <footer id="contact"><div class="footer-grid"><div><p class="overline">COMPANY</p><a href="#top">Homepage</a><a href="#products">Products</a><a href="#about">About us</a></div><div><p class="overline">DISCOVER</p><a href="#about">Our story</a><a href="#guide">Sustainability</a></div><div><p class="overline">CONTACT</p><span>Questions about Karst?</span><a href="#contact">Karst notebooks & tools</a></div></div><div class="footer-bottom"><img class="footer-logo" src="../image/logo.png" alt="KARST"><span>© <i data-year></i> · KARST CONTENT STUDY</span><a href="#top">BACK TO TOP ↑</a></div><div class="footer-top"><h2>Make space<br>for your ideas.</h2><a class="round-link" href="#contact" aria-label="Contact us">↗</a></div></footer>
-  <script src="script.js?v=13" defer></script>
+  <script src="script.js?v=28" defer></script>
 </body>
 </html>
 
