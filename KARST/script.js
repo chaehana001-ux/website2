@@ -180,19 +180,23 @@ if (collectionTitle && 'IntersectionObserver' in window && !reducedMotion.matche
   });
 }
 
-// Reveal each material row only when scrolling carries it past the trigger line.
+// Finish revealing the benefits once most of the copy panel is in view.
 const materialBenefits = document.querySelector('.home-fit-benefits');
 if (materialBenefits) {
   const rows = [...materialBenefits.children];
+  const copyPanel = materialBenefits.closest('.home-fit-copy');
   materialBenefits.setAttribute('data-reveal-enabled', '');
   let benefitsFrame = 0;
   const updateMaterialBenefits = () => {
     benefitsFrame = 0;
     const trigger = window.innerHeight * .7;
+    const panelBounds = copyPanel.getBoundingClientRect();
+    const visibleHeight = Math.max(0, Math.min(panelBounds.bottom, window.innerHeight) - Math.max(panelBounds.top, 0));
+    const panelReady = visibleHeight >= Math.min(panelBounds.height, window.innerHeight) * .65;
     rows.forEach((row) => {
       const bounds = row.getBoundingClientRect();
       const revealed = bounds.top + bounds.height * .5 <= trigger && bounds.bottom > 0;
-      row.classList.toggle('is-visible', reducedMotion.matches || revealed);
+      row.classList.toggle('is-visible', reducedMotion.matches || panelReady || revealed);
     });
   };
   const scheduleMaterialBenefits = () => {
@@ -231,7 +235,7 @@ if (materialBanner) {
     return rail;
   });
   const badges = [];
-  // Horizontal lanes from Figma; each icon gets a separate scroll interval.
+  // Horizontal lanes from Figma; icon ascents overlap along the scroll timeline.
   const badgePositions = [
     [14, 10], [14, 10], [86, 90],
     [14, 10], [86, 90], [86, 90]
@@ -289,11 +293,15 @@ if (materialBanner) {
       const reveal = clampProgress(progress * words.length - index);
       word.style.opacity = String(.12 + reveal * .88);
     });
+    // Start the next icon after the previous icon reaches the upper quarter.
+    const badgeHeight = Math.max(...badges.map(({ element }) => element.offsetHeight));
+    const badgeInterval = stage.clientHeight * .75 / (stage.clientHeight + badgeHeight + 2);
+    const badgeTimeline = 1 + (badges.length - 1) * badgeInterval;
     badges.forEach(({ element, order }) => {
-      const localProgress = progress * badges.length - order;
+      const localProgress = progress * badgeTimeline - order * badgeInterval;
       const active = localProgress >= 0 && localProgress < 1;
       const reveal = clampProgress(localProgress);
-      // Finish one icon's ascent before the next icon enters, alternating sides.
+      // Keep ascending while the following icon enters from below.
       const y = stage.clientHeight - reveal * (stage.clientHeight + element.offsetHeight + 2);
       const envelope = Math.sin(reveal * Math.PI);
       // Curve the travel path gently while keeping the artwork upright.
